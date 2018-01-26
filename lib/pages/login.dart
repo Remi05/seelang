@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:seelang/components/login_form.dart';
+import 'package:seelang/models/user.dart';
 import 'package:seelang/services/auth.service.dart';
-import 'package:seelang/utils/routes.dart';
 
 class LoginPage extends StatefulWidget {
   final AuthService _authService;
@@ -15,24 +15,22 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final AuthService _authService;
-
   String _signInFeedbackMessage = '';
 
   _LoginPageState(this._authService);
 
   Future<Null> _signInWithEmailAndPassword(String email, String password) async {
-    var user = await _authService.login(email, password);
-    bool loginSuccess = user != null;
+    User user = await _authService.signInWithEmailAndPassword(email, password);
     setState(() {
-      _signInFeedbackMessage = !loginSuccess ? 'Login failed' : '';
+      _signInFeedbackMessage = user == null ? 'Login failed' : 'Hello ${user.displayName}';
     });
-    if (loginSuccess) {
-      Navigator.of(context).pushNamed(Routes.Captures);
-    }
   }
 
   Future<Null> _signInWithGoogle() async {
-
+    User user = await _authService.signInWithGoogle();
+    setState(() {
+      _signInFeedbackMessage = user == null ? 'Login failed' : 'Hello ${user.displayName}';
+    });
   }
 
   @override
