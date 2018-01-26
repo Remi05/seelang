@@ -6,6 +6,8 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^0.1.0
+  google_sign_in:
+  firebase_auth:
 
 dev_dependencies:
   flutter_test:
