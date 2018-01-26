@@ -38,7 +38,7 @@ class LoginForm extends StatelessWidget {
 
   Widget _buildPasswordTextField() {
     return new Padding(
-      padding: new EdgeInsets.only(bottom: 50.0),
+      padding: new EdgeInsets.only(bottom: 40.0),
       child: new TextFormField(
         decoration: new InputDecoration(
             labelText: 'Password',
@@ -69,7 +69,7 @@ class LoginForm extends StatelessWidget {
 
   Widget _buildSignInWithGoogleButton(BuildContext context) {
     return new Padding(
-      padding: new EdgeInsets.only(top: 20.0),
+      padding: new EdgeInsets.only(top: 30.0),
       child: new PillButton(
           onPressed: onSignInWithGooglePressed,
           color: Colors.white,
