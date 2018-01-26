@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seelang/components/login/google_login_button.dart';
 import 'package:seelang/components/pill_button.dart';
 
 typedef void EmailLoginCallback(String email, String password);
@@ -70,26 +71,8 @@ class LoginForm extends StatelessWidget {
   Widget _buildSignInWithGoogleButton(BuildContext context) {
     return new Padding(
       padding: new EdgeInsets.only(top: 30.0),
-      child: new PillButton(
-          onPressed: onSignInWithGooglePressed,
-          color: Colors.white,
-          elevation: 3.0,
-          child: new Padding(
-              padding: new EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 15.0),
-              child: new Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  new Text('SIGN IN WITH  ',
-                      style: new TextStyle(
-                        color: Theme.of(context).buttonColor,
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                      )
-                  ),
-                  new Image.asset('images/google-logo.png', scale: 7.0),
-                ],
-              ),
-          ),
+      child: new GoogleLoginButton(
+        onPressed: onSignInWithGooglePressed,
       ),
     );
   }

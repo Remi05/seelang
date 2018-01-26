@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:seelang/components/login_form.dart';
+import 'package:seelang/components/login/login_form.dart';
 import 'package:seelang/models/user.dart';
 import 'package:seelang/services/auth.service.dart';
 
