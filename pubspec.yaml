@@ -1,0 +1,19 @@
+name: seelang
+description: An app to help you learn new languages.
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - images/logo.png
+    - images/google-logo.png
