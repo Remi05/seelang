@@ -2,7 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:seelang/components/login/login_form.dart';
 import 'package:seelang/models/user.dart';
-import 'package:seelang/services/auth.service.dart';
+import 'package:seelang/services/auth_service.dart';
+import 'package:seelang/utils/routes.dart';
 
 class LoginPage extends StatefulWidget {
   final AuthService _authService;
@@ -19,18 +20,23 @@ class _LoginPageState extends State<LoginPage> {
 
   _LoginPageState(this._authService);
 
-  Future<Null> _signInWithEmailAndPassword(String email, String password) async {
-    User user = await _authService.signInWithEmailAndPassword(email, password);
+  void _checkLoginState(BuildContext context) {
     setState(() {
-      _signInFeedbackMessage = user == null ? 'Login failed' : 'Hello ${user.displayName}';
+      _signInFeedbackMessage = _authService.currentUser == null ? 'Login failed' : '';
     });
+    if (_authService.currentUser != null) {
+      Navigator.of(context).pushNamed(Routes.Home);
+    }
   }
 
-  Future<Null> _signInWithGoogle() async {
+  Future<Null> _signInWithEmailAndPassword(BuildContext context, String email, String password) async {
+    User user = await _authService.signInWithEmailAndPassword(email, password);
+    _checkLoginState(context);
+  }
+
+  Future<Null> _signInWithGoogle(BuildContext context) async {
     User user = await _authService.signInWithGoogle();
-    setState(() {
-      _signInFeedbackMessage = user == null ? 'Login failed' : 'Hello ${user.displayName}';
-    });
+    _checkLoginState(context);
   }
 
   @override
@@ -45,8 +51,8 @@ class _LoginPageState extends State<LoginPage> {
               width: 340.0,
               margin: new EdgeInsets.fromLTRB(20.0, 10.0, 40.0, 0.0),
               child: new LoginForm(
-                onSignInPressed: _signInWithEmailAndPassword,
-                onSignInWithGooglePressed: _signInWithGoogle,
+                onSignInPressed: (email, password) => _signInWithEmailAndPassword(context, email, password),
+                onSignInWithGooglePressed: () => _signInWithGoogle(context),
                 signInFeedbackMessage: _signInFeedbackMessage,
               ),
             ),
