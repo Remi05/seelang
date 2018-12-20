@@ -8,6 +8,7 @@ dependencies:
   cupertino_icons: ^0.1.0
   google_sign_in:
   firebase_auth:
+  firebase_storage:
   camera:
   path_provider:
 
