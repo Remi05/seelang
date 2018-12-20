@@ -8,6 +8,8 @@ dependencies:
   cupertino_icons: ^0.1.0
   google_sign_in:
   firebase_auth:
+  camera:
+  path_provider:
 
 dev_dependencies:
   flutter_test:
