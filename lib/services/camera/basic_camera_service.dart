@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:seelang/services/camera_service.dart';
+import 'package:seelang/services/camera/camera_service.dart';
 
 class BasicCameraService implements CameraService {
   List<CameraDescription> _cameras;

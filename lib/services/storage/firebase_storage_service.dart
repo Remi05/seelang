@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:seelang/services/storage_service.dart';
+import 'package:seelang/services/storage/storage_service.dart';
 
 class FirebaseStorageService implements StorageService {
   final FirebaseStorage _firebaseStorage = FirebaseStorage.instance;

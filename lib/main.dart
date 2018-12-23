@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:seelang/pages/home.dart';
-import 'package:seelang/pages/login.dart';
-import 'package:seelang/services/auth_service.dart';
-import 'package:seelang/services/firebase_auth_service.dart';
+import 'package:seelang/pages/home_page.dart';
+import 'package:seelang/pages/login_page.dart';
+import 'package:seelang/services/auth/auth_service.dart';
+import 'package:seelang/services/auth/firebase_auth_service.dart';
 import 'package:seelang/utils/routes.dart';
 
 void main() {
