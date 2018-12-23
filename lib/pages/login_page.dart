@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:seelang/components/login/login_form.dart';
 import 'package:seelang/models/user.dart';
-import 'package:seelang/services/auth_service.dart';
+import 'package:seelang/services/auth/auth_service.dart';
 import 'package:seelang/utils/routes.dart';
 
 class LoginPage extends StatefulWidget {

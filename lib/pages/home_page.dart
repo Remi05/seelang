@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:seelang/pages/captures_page.dart';
 import 'package:seelang/pages/camera_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,9 +12,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<Widget> _pages = [
+    new CapturesPage(),
     new CameraPage(),
-    new CameraPage(),
-    new CameraPage(),
+    new CapturesPage(),
   ];
 
   int _currentPageIndex = 0;

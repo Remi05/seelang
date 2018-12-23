@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:seelang/models/user.dart';
-import 'package:seelang/services/auth_service.dart';
+import 'package:seelang/services/auth/auth_service.dart';
 import 'package:seelang/services/exceptions.dart';
 
 class FirebaseAuthService implements AuthService {
