@@ -10,12 +10,15 @@ dependencies:
   firebase_auth:
   firebase_ml_vision:
   firebase_storage:
+  firebase_database:
   camera:
   path_provider:
+  json_serializable: ^2.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner:
 
 flutter:
   uses-material-design: true

@@ -1,38 +1,29 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:seelang/services/camera/camera_service.dart';
-import 'package:seelang/services/camera/basic_camera_service.dart';
+import 'package:seelang/blocs/captures_bloc.dart';
 
 class CameraPage extends StatefulWidget {
+  final CapturesBloc _capturesBloc;
+
+  CameraPage(this._capturesBloc);
+
   @override
-  _CameraPageState createState() => _CameraPageState();
+  _CameraPageState createState() => _CameraPageState(_capturesBloc);
 }
 
 class _CameraPageState extends State<CameraPage> {
-  final CameraService _cameraService = new BasicCameraService();
-  File _image;
+  final CapturesBloc _capturesBloc;
 
-  void takePicture() async {
-    File image = await _cameraService.takePicture();
-    setState(() => _image = image);
-  }
-
-  Widget _capturePreview() {
-    if (_image != null) {
-      return Image.file(_image);
-    }
-    return Container();
-  }
+  _CameraPageState(this._capturesBloc);
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        _cameraService.getCameraPreview(),
+        _capturesBloc.getCameraPreview(),
         Align(
           alignment: Alignment.bottomCenter,
           child: RaisedButton(
-            onPressed: takePicture,
+            onPressed: _capturesBloc.takeCapture,
             child: Text('Take Picture'),
           ),
         )

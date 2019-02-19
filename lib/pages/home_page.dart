@@ -1,23 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:seelang/blocs/captures_bloc.dart';
 import 'package:seelang/pages/captures_page.dart';
 import 'package:seelang/pages/camera_page.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+  final CapturesBloc _capturesBloc;
+
+  HomePage(this._capturesBloc, {Key key}) : super(key: key);
 
   @override
-  _HomePageState createState() => new _HomePageState();
+  _HomePageState createState() => new _HomePageState(_capturesBloc);
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<Widget> _pages = [
-    new CapturesPage(),
-    new CameraPage(),
-    new CapturesPage(),
-  ];
-
+  final CapturesBloc _capturesBloc;
+  List<Widget> _pages;
   int _currentPageIndex = 0;
+
+  _HomePageState(this._capturesBloc) {
+    _pages = [
+      new CapturesPage(_capturesBloc),
+      new CameraPage(_capturesBloc),
+      new CapturesPage(_capturesBloc),
+    ];
+  }
 
   void goToPage(int pageIndex) {
     setState(() {
